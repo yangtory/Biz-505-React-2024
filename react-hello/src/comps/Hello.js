@@ -34,6 +34,7 @@ const Hello = () => {
     // setStName() 함수를 사용하여 stName 변수에 할당하기
     setStName(target.value);
   };
+  // input 에 onChange 가 없으면 read only 만 가능하기때문에 붙혀준다
   return (
     <>
       <h1>안녕하세요</h1>
