@@ -1,0 +1,22 @@
+header,
+footer {
+  width: 50vw;
+  margin: 20px auto;
+  text-align: center;
+  border: 1px solid #ddd;
+  background-color: black;
+  color: white;
+}
+
+header {
+  padding: 1.2rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+footer {
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
