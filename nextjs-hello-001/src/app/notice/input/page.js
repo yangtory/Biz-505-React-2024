@@ -1,6 +1,7 @@
 import styles from "@/css/Notice.Input.module.css";
 // api/notice.js 에 선언된 createNotice() 함수를 사용하겠다
 import { createNotice } from "@/app/api/notice";
+import { redirect } from "next/navigation";
 /**
  * 공지사항 작성하기
  * 작성자, 제목, 내용, 중요도
@@ -19,9 +20,12 @@ export default () => {
       m_flag: formData.get("m_flag"),
       m_subject: formData.get("m_subject"),
       m_content: formData.get("m_content"),
+      m_date: "2024-02-28",
+      m_time: "15:16:00",
     };
     // 여기 await 쓰려면 createNotice 도 async 해주기
     await createNotice(noticeData);
+    redirect("/notice");
   };
   return (
     <form
@@ -45,7 +49,7 @@ export default () => {
       </div>
       <div>
         <textarea
-          placeholder="sodyd"
+          placeholder="내용"
           rows="10"
           name="m_content"
         ></textarea>
