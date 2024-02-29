@@ -1,0 +1,13 @@
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.aside {
+  flex: 1;
+  background-color: #aaa;
+}
+
+.section {
+  flex: 3;
+}

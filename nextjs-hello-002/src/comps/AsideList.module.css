@@ -1,0 +1,43 @@
+/* .ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  /* border: 1px solid black; */
+/* } */
+
+/* .li {
+  padding: 0.5rem 2rem;
+  margin: 5px;
+  font-weight: 900;
+  border-bottom: 2px solid transparent;
+}
+
+.li:hover {
+  border-bottom: 2px solid yellowgreen;
+}  */
+
+.ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.ul a {
+  display: block;
+  width: 80%;
+  padding: 12px 10px 5px 10px;
+  margin: 10px auto;
+  text-align: right;
+  border-bottom: 3px solid transparent;
+  transition: 0.7s;
+}
+
+.ul a:hover {
+  border-bottom: 3px solid yellowgreen;
+}
+
+.active {
+  color: blue;
+}
