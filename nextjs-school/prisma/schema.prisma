@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tbl_student {
+  st_code  String  @id
+  st_name  String
+  st_dept  String
+  st_grade String
+  st_tel   String?
+  st_addr  String?
+
+  tbl_stu_sub tbl_stu_sub[]
+}
+
+model tbl_subject {
+  su_code String  @id
+  su_name String
+
+  tbl_stu_sub tbl_stu_sub[]
+}
+
+// 학생과 과목의 관계 테이블
+model tbl_stu_sub {
+  r_stcode String
+  r_sucode String
+  r_score  String?
+
+  @@id([r_stcode, r_sucode])
+
+  // 학생 테이블과의 관계 정의
+  st_code   tbl_student @relation(fields: [r_stcode], references: [st_code])
+  
+  // 과목 테이블과의 관계 정의
+
+  su_code   tbl_subject @relation(fields: [r_sucode], references: [su_code])
+}
