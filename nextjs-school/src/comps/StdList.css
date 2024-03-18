@@ -1,0 +1,16 @@
+tr,
+td {
+    padding: 10px 2rem;
+    text-align: center;
+}
+th {
+    padding: 10px 2.5rem;
+    background-color: gray;
+}
+tr {
+    border-bottom: 1px solid gray;
+}
+
+ul {
+    margin: 10px;
+}

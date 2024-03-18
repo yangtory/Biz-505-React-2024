@@ -1,0 +1,8 @@
+.search_box {
+    display: flex;
+}
+input.search {
+    padding: 8px 5rem;
+    margin: 12px;
+    text-align: center;
+}
