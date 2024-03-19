@@ -1,0 +1,20 @@
+.body {
+  width: 100%;
+  margin: 5px auto;
+}
+
+/* > : .body와 가장 가까이 있는 아들만 적용하기*/
+.body > div {
+  display: flex;
+  padding: 8px;
+  border-bottom: 1xp solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+.body strong {
+  flex: 1;
+}
+
+.body span {
+  flex: 3;
+}
