@@ -1,0 +1,44 @@
+.header {
+  padding: 3rem;
+  text-align: center;
+  background-image: url("../images/things_1024.jpg");
+  background-position: top;
+  background-size: 100% 300%;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.nav {
+  background-color: black;
+  color: white;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav li {
+  margin: 5px;
+  margin-bottom: 8px;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 8px 12px 4px 12px;
+  color: inherit;
+  border-bottom: 2px solid transparent;
+  transition: 0.6s ease-in-out;
+}
+
+.nav a:hover {
+  border-bottom: 2px solid green;
+}
+
+.nav .order {
+  margin-left: auto;
+}
+
+.nav .user {
+  margin-left: auto;
+}

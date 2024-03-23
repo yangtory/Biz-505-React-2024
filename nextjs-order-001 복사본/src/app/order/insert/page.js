@@ -1,45 +1,40 @@
 'use client';
-import css from '@/css/insert.module.css';
 import { customerSearch } from '@/app/api/customer';
-import { selectAll } from '@/app/api/order';
+import css from '@/css/insert.module.css';
 import { useEffect, useState } from 'react';
-import ProductSearch from './comps/ProductSearch';
-import CustomerSearch from './comps/CustomerSearch';
 
 const OrderInsert = () => {
     const [search, setSearch] = useState('');
     const [customList, setCustomList] = useState([]);
     const [oneList, setOneList] = useState([]);
-    const [newNum, setNewNum] = useState('');
 
-    // 새코드 만들기
-    useEffect(() => {
-        const getNewNum = async () => {
-            const result = await selectAll();
-            const lastNum = Number(result.length - 1);
-            const currentNum = result[lastNum].o_num;
-            const subNum = currentNum.substring(1, 6);
-            const strNum = String(Number(subNum) + 1);
-            const padNum = 'O' + strNum.padStart(5, '0');
-            console.log(padNum);
-            setNewNum(padNum);
-        };
-        getNewNum();
-    });
+    const onChangeHandler = (e) => {
+        const value = e.target.value;
+        setSearch(value);
+    };
+
+    const onClickHandler = () => {
+        customSearch(search);
+    };
+
+    const customSearch = async (value) => {
+        setCustomList([]);
+        const result = await customerSearch(value);
+        setCustomList([...result]);
+        console.log(result);
+    };
+
+    const codeClickHandler = async (code) => {
+        const result = await customerSearch(code);
+        setOneList([...result]);
+        console.log(result);
+    };
 
     const viewList = customList.map((list) => (
         <li key={list.c_code} onClick={() => codeClickHandler(list.c_code)}>
             {list.c_code}
         </li>
     ));
-
-    // 검색 리스트 클릭 시 1명의 디테일 출력
-    const codeClickHandler = async (code) => {
-        const result = await customerSearch(code);
-        setOneList([...result]);
-        setSearch(result[0].c_code);
-        console.log(result);
-    };
 
     const oneViewList = oneList.map((one) => (
         <ul>
@@ -49,20 +44,22 @@ const OrderInsert = () => {
         </ul>
     ));
 
-    //
-
     return (
         <>
             <section className={css.main}>
                 <h1>주문서 입력</h1>
-                <h2>{newNum}</h2>
+                <h2>주문번호 : O01001</h2>
                 <form className={css.form}>
                     <div>
-                        <CustomerSearch search={search} setSearch={setSearch} setCustomList={setCustomList} />
+                        <input placeholder="고객코드" value={search} onChange={onChangeHandler} />
+                        <button type="button" onClick={onClickHandler}>
+                            검색
+                        </button>
                     </div>
                     {oneViewList}
                     <div>
-                        <ProductSearch />
+                        <input placeholder="상품코드" />
+                        <button>검색</button>
                     </div>
                     <div>
                         <input placeholder="주문수량" />
