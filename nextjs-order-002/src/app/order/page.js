@@ -1,5 +1,5 @@
 "use client";
-import css from "@/css/order.module.css";
+import css from "@/css/order.main.module.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { selectAll } from "../api/order";
@@ -19,6 +19,7 @@ const OrderPage = () => {
       {order.o_num},{order.o_ccode}
     </li>
   ));
+
   return (
     <section className={css.main}>
       <ul className={css.list}>{viewList}</ul>
