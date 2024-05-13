@@ -80,6 +80,10 @@ div.side {
   }
 }
 
+div.side.hidden {
+  display: none;
+}
+
 div.login_wrap,
 div.join_wrap {
   height: 100%;

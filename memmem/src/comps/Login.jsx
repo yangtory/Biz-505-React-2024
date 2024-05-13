@@ -1,16 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [loginOk, setLoginOk] = useState(false);
-
   const [errorMessage, setErrorMessage] = useState("");
+  const history = useNavigate();
 
   const loginHandler = () => {
     if (username === "tory" && password === "1") {
       setLoginOk(true);
       localStorage.setItem("loginOk", true);
+      history("/main");
     } else {
       setErrorMessage("아이디 또는 비밀번호를 확인하세요!");
     }
