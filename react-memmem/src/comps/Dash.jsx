@@ -1,29 +1,30 @@
 import "../css/dash.css";
-// import axios from "axios";
-// import { useEffect, useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Dash = () => {
-  //   const baseUrl = "http://localhost:3000";
+  // const baseUrl = "http://localhost:8080";
 
-  //   const [data, setData] = useState("");
+  const [data, setData] = useState("");
 
-  //   useEffect(() => {
-  //     // 컴포넌트가 마운트 될 때 실행
-  //     springDataSet();
-  //   }, []);
+  useEffect(() => {
+    // 컴포넌트가 마운트 될 때 실행
+    springDataSet();
+  }, []);
 
-  //   async function springDataSet() {
-  //     // Axios 방식 사용
-  //     await axios
-  //       .get(baseUrl + "/test") // 해당 URL에 HTTP GET 요청
-  //       .then((res) => {
-  //         console.log(res);
-  //         setData(res.data); // GET 요청하여 응답받은 data
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
+  function springDataSet() {
+    // Axios 방식 사용
+    axios
+      .get("/test/get") // 해당 URL에 HTTP GET 요청
+      .then((res) => {
+        console.log(res);
+        setData(res.data); // GET 요청하여 응답받은 data
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <>
       <section className="page">
@@ -32,7 +33,7 @@ const Dash = () => {
             <div className="total">월 매출</div>
             <div className="error">
               <div className="total error_left">
-                <div></div>
+                <div>{data}</div>
               </div>
             </div>
           </div>

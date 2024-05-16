@@ -46,7 +46,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/join" element={<Join />} />
             <Route path="/main" element={<Dash />} />
-            {/* <Route path="/ticket" element={<Dash />} /> */}
+            <Route path="/ticket" element={<Dash />} />
           </Routes>
         </section>
       </div>
